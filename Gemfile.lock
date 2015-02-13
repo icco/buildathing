@@ -1,3 +1,12 @@
+GIT
+  remote: git@github.com:sinatra/sinatra.git
+  revision: 9929353e6c59f07b8f6d98002778e0dc4a7faf3a
+  specs:
+    sinatra (1.4.5)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -76,10 +85,6 @@ GEM
     sass (3.4.11)
     shotgun (0.9)
       rack (>= 1.0)
-    sinatra (1.4.5)
-      rack (~> 1.4)
-      rack-protection (~> 1.4)
-      tilt (~> 1.3, >= 1.3.4)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -109,4 +114,5 @@ DEPENDENCIES
   rake
   sass
   shotgun
+  sinatra!
   thin
