@@ -103,7 +103,7 @@ DEPENDENCIES
   erubis (~> 2.7.0)
   minitest
   oj
-  padrino (= 0.12.4)
+  padrino
   pg
   rack-test
   rake

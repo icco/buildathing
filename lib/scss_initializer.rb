@@ -1,4 +1,4 @@
-module SassInitializer
+module ScssInitializer
   def self.registered(app)
     # Enables support for SASS template reloading in rack applications.
     # See http://nex-3.com/posts/88-sass-supports-rack for more details.
