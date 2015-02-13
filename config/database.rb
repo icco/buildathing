@@ -1,46 +1,9 @@
 ##
-# You can use other adapters like:
-#
-#   ActiveRecord::Base.configurations[:development] = {
-#     :adapter   => 'mysql2',
-#     :encoding  => 'utf8',
-#     :reconnect => true,
-#     :database  => 'your_database',
-#     :pool      => 5,
-#     :username  => 'root',
-#     :password  => '',
-#     :host      => 'localhost',
-#     :socket    => '/tmp/mysql.sock'
-#   }
-#
-ActiveRecord::Base.configurations[:development] = {
-  :adapter   => 'postgresql',
-  :database  => 'buildathing_development',
-  :username  => 'root',
-  :password  => '',
-  :host      => 'localhost',
-  :port      => 5432
-
-}
-
-ActiveRecord::Base.configurations[:production] = {
-  :adapter   => 'postgresql',
-  :database  => 'buildathing_production',
-  :username  => 'root',
-  :password  => '',
-  :host      => 'localhost',
-  :port      => 5432
-
-}
-
-ActiveRecord::Base.configurations[:test] = {
-  :adapter   => 'postgresql',
-  :database  => 'buildathing_test',
-  :username  => 'root',
-  :password  => '',
-  :host      => 'localhost',
-  :port      => 5432
-
+# Database config for relational db.
+connections = {
+  :development => "postgres://localhost/buildathing",
+  :test => "postgres://postgres@localhost/buildathing_test",
+  :production => ENV['DATABASE_URL']
 }
 
 # Setup our logger
@@ -73,3 +36,31 @@ ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrin
 
 # Timestamps are in the utc by default.
 ActiveRecord::Base.default_timezone = :utc
+
+# Now we can estabilish connection with our db
+if connections[Padrino.env]
+  url = URI(connections[Padrino.env])
+  options = {
+    :adapter => url.scheme,
+    :host => url.host,
+    :port => url.port,
+    :database => url.path[1..-1],
+    :username => url.user,
+    :password => url.password
+  }
+
+  case url.scheme
+  when "sqlite"
+    options[:adapter] = "sqlite3"
+    options[:database] = url.host + url.path
+  when "postgres"
+    options[:adapter] = "postgresql"
+  end
+
+  # Log what we are connecting to.
+  logger.push " DB: #{options.inspect}", :devel
+
+  ActiveRecord::Base.establish_connection(options)
+else
+  logger.push("No database configuration for #{Padrino.env.inspect}", :fatal)
+end
