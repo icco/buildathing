@@ -3,9 +3,13 @@
 module Buildathing
   class App
     module Helper
-      # def simple_helper_method
-      # ...
-      # end
+      def title
+        if !@title.nil? && !@title.empty?
+          "| #{@title}"
+        else
+          ""
+        end
+      end
     end
 
     helpers Helper

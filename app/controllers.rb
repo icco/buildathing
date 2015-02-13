@@ -1,7 +1,7 @@
-Buildathing::App.controllers  do
-  
-  get :index do
-    render :index
-  end
+Buildathing::App.controllers do
+  layout :main
 
+  get :index do
+    render 'index'
+  end
 end
