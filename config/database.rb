@@ -31,9 +31,6 @@ ActiveSupport.use_standard_json_time_format = true
 # if you're including raw JSON in an HTML page.
 ActiveSupport.escape_html_entities_in_json = false
 
-# Now we can establish connection with our db.
-ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrino.env])
-
 # Timestamps are in the utc by default.
 ActiveRecord::Base.default_timezone = :utc
 
