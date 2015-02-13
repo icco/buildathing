@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'activerecord', '>= 3.1', :require => 'active_record'
+gem 'octokit'
+gem 'omniauth-github'
 gem 'erubis', '~> 2.7.0'
 gem 'minitest', :require => 'minitest/autorun', :group => 'test'
 gem 'oj'
