@@ -1,10 +1,23 @@
 <html>
   <head>
     <title>Build A Thing Club <%= title %></title>
+    <link href="//d2v52k3cl9vedd.cloudfront.net/basscss/4.2.4/basscss.min.css" rel="stylesheet">
     <%= stylesheet_link_tag 'style' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <header class="white bg-mid-gray bg-cover bg-center" style="background-image: url(/img/shattered.png)">
+      <nav class="clearfix white">
+        <div class="sm-col">
+          <a href="/" class="button py2 button-nav-dark">Today</a>
+          <a href="/archive" class="button py2 button-nav-dark">Archive</a>
+        </div>
+        <div class="sm-col-right">
+          <a href="/about" class="button py2 button-nav-dark">About</a>
+        </div>
+      </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>
