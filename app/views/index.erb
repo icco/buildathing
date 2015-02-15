@@ -1,3 +1,14 @@
-<p><%= @thing.date.strftime("%F") %></p>
+<div class="bg-white clearfix mxn2">
+  <div class="right-align col-8 px2 mx-auto">
+      <h1 class="h1 h0-responsive caps mt4 mb0 regular">Club Build a Thing</h1>
+      <p class="h3">A group of individuals working to improve themselves by building random things once a day.</p>
+  </div>
+</div>
 
-<p><%= @thing.text %></p>
+<div class="clearfix mxn2">
+  <div class="col-8 px2 mx-auto">
+    <h1 class="h1 mt4 mb0 regular"><%= @thing.date.strftime("%F") %></h1>
+    <p class="h3"><%= @thing.text %></p>
+    <a href="#" class="h3 button button-big mb4 button-blue">Submit an entry</a>
+  </div>
+</div>
