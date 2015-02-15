@@ -3,6 +3,10 @@ Buildathing::App.controllers do
 
   get :index do
     @thing = Thing.get Time.now
+    if @thing.nil?
+      @thing = Thing.latest
+    end
+
     render 'index'
   end
 end

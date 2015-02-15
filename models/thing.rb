@@ -1,8 +1,16 @@
 class Thing
   attr_accessor :text, :date
 
+  def <=>(other)
+    return self.date <=> other.date
+  end
+
   def self.get date
     return self.all.select {|s| s.date.strftime("%F").eql? date.strftime("%F") }.first
+  end
+
+  def self.latest
+    self.all.sort[-1]
   end
 
   def self.all
