@@ -7,7 +7,12 @@ Buildathing::App.controllers do
       @thing = Thing.latest
     end
 
-    render 'index'
+    render :index
+  end
+
+  get :archive do
+    @things = Thing.all.sort {|a,b| b <=> a }
+    render :archive
   end
 
   get :about do

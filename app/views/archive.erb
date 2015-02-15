@@ -1,0 +1,11 @@
+<div class="clearfix mxn2">
+  <div class="col-8 px2 mx-auto">
+    <h1>Archive</h1>
+
+    <ul>
+      <% @things.each do |t| %>
+        <li><a href="<%= t.url %>"><%= t.date.strftime("%F") %></a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -5,6 +5,10 @@ class Thing
     return self.date <=> other.date
   end
 
+  def url
+    return "/thing/#{date.strftime("%F")}"
+  end
+
   def self.get date
     return self.all.select {|s| s.date.strftime("%F").eql? date.strftime("%F") }.first
   end
