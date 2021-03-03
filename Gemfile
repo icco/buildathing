@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'activerecord', '>= 3.1', :require => 'active_record'
+gem 'activerecord', '>= 5.2.4.5', :require => 'active_record'
 gem 'chronic'
 gem 'erubis', '~> 2.7.0'
 gem 'minitest', :require => 'minitest/autorun', :group => 'test'
